@@ -12,6 +12,7 @@ class Article(models.Model):
     )
     body = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    picture = models.CharField(max_length=512, default=None, null=True)
 
     def __str__(self):
         return self.title

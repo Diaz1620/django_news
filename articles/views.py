@@ -16,7 +16,7 @@ class ArticleDetailView(DetailView):
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
     template_name = 'article_new.html'
-    fields = ["title","body"]
+    fields = ["title","body", "picture"]
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -25,7 +25,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article
     template_name = "article_edit.html"
-    fields = ["title", "body"]
+    fields = ["title", "body", "picture"]
 
     def test_func(self):
         obj = self.get_object()
